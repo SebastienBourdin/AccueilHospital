@@ -1,6 +1,7 @@
 Sequence :
   Ajouter un diagramme de séquence pour la création d'un rdv.
   User toujours connecté a la vue pour passer au controller!!!
+  Modif nom des fonction diagramme RDV
   
 TOUT :
   Consulter/Modifier les medecins et leurs RDV.
