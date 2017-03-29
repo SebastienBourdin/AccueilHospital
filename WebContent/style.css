@@ -1,0 +1,40 @@
+@CHARSET "ISO-8859-1";
+
+.content {
+font-family: sans-serif;
+font-size: small;
+}
+
+
+.userTable {
+	border-width: 1px 1px 1px 1px;
+	border-spacing: 2px;
+	border-style: outset outset outset outset;
+	border-color: black black black black;
+	border-collapse: collapse;
+}
+
+.userTable td {
+	border-width: 1px 1px 1px 1px;
+	border-spacing: 2px;
+	border-style: outset outset outset outset;
+	border-color: black black black black;
+	border-collapse: collapse;
+}
+
+.userTable th {
+	border-width: 1px 1px 1px 1px;
+	border-spacing: 2px;
+	border-style: outset outset outset outset;
+	border-color: black black black black;
+	border-collapse: collapse;
+	background-color: rgb(255, 255, 255);
+}
+
+.odd {
+background-color: #FFFFF0;
+}
+
+.even {
+background-color: #FAF0E6;
+}
