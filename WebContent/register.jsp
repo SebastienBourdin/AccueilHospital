@@ -11,7 +11,7 @@
 @import url(style.css);
 </style>
 </head>
-<body>
+<body>Hello <s:property value="#session.nom"/> 
 <s:form action="addUser">
 	<s:textfield name="name" label="User Name" />
 	<s:password name="password" label="Password" />

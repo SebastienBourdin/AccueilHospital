@@ -10,5 +10,25 @@
 		<action name="listUser" method="list" class="com.tutorials4u.web.UserAction">
 			<result name="success">/register.jsp</result>
 		</action>
+		<action name="session" method="sessionstart" class="com.hopital.client.session">
+			<result name="success">/jsp/saisiesession.jsp</result>
+		</action>
+		<action name="sessionstart" method="sessionstart" class="com.hopital.client.session">
+			<result name="success">/jsp/sessiontest.jsp</result>
+		</action>
+		<action name="sessionstop" method="sessionstop" class="com.hopital.client.session">
+			<result name="success">/jsp/sessiontest.jsp</result>
+		</action>
+	</package>
+	<package name="RDV" namespace="/rdv" extends="default" >
+		<action name="new">
+			<result >/jsp/Rendez-vous/register.jsp</result>
+		</action>
+		<action name="addRDV" method="add" class="com.hopital.action.RdvAction">
+			<result name="success" type="redirect">list</result>
+		</action>
+		<action name="list" method="list" class="com.hopital.action.RdvAction">
+			<result name="success">/jsp/Rendez-vous/liste.jsp</result>
+		</action>
 	</package>
 </struts>
