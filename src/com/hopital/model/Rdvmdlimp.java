@@ -1,5 +1,6 @@
 package com.hopital.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -17,12 +18,11 @@ public class Rdvmdlimp implements Rdvmdl{
 	@Override
 	public void saveRdv(Rdv rdv) {
 		// TODO Auto-generated method stub
-		System.out.println(rdv.toString());
-		String hql = "INSERT INTO rendezvous (id_user, id_patient, date, heure, duree) "  + 
+		
+		String hql = "INSERT INTO rendezvous (iduser, idpatient, date, heure, duree) "  + 
 	             "VALUES ('"+rdv.getIduser()+"', '"+rdv.getIdpatient()+"', '"+rdv.getDate()+"', '"+rdv.getHeure()+"', '"+rdv.getDuree()+"');";
 	
 		try {
-			System.out.println(rdv.toString());
 			session.createSQLQuery(hql).executeUpdate();
 			
 		} catch (Exception e) {
@@ -36,9 +36,11 @@ public class Rdvmdlimp implements Rdvmdl{
 		// TODO Auto-generated method stub
 		List<Rdv> courses = null;
 		try {
-			courses = session.createSQLQuery("SELECT * from rendezvous").list();
-			
+
+			courses = session.createQuery("from Rdv").list();
+			System.out.println(courses.get(0).toString());
 		} catch (Exception e) {
+			System.out.println("jjj");
 			e.printStackTrace();
 		} 
 		return courses;

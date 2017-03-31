@@ -27,17 +27,17 @@ import javax.persistence.Table;
 		public void setId(int id) {
 			this.id = id;
 		}
-		@Id
-		@GeneratedValue
-		@Column(name="id_user")
+		
+		
+		@Column(name="iduser")
 		public int getIduser() {
 			return iduser;
 		}
 		public void setIduser(int id) {
 			this.iduser = id;
-		}@Id
-		@GeneratedValue
-		@Column(name="id_patient")
+		}
+		
+		@Column(name="idpatient")
 		public int getIdpatient() {
 			return idpatient;
 		}
