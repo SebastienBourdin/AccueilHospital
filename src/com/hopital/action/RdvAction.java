@@ -36,6 +36,25 @@ public class RdvAction extends ActionSupport  implements ModelDriven<Rdv> {
 		return NONE;
 		}
 	}
+	public String get()
+	{	
+		if(rdv.getHour()!=00 && rdv.getMinute()!=00){
+			rdv.setHeure(new Time(rdv.getHour(),rdv.getMinute(), 0));
+		}
+		
+		System.out.println(rdv.getDaterdv());
+		
+		 
+		if(!rdv.getDaterdv().isEmpty()){
+		rdv.setDate(DateUtil.getDate(rdv.getDaterdv()));
+			
+		}
+	
+		rdvList = rdvmdl.listCustom(rdv);
+		
+		return SUCCESS;
+
+	}
 	
 	
 	public boolean check(Rdv rdv){
