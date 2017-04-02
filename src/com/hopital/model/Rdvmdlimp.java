@@ -3,6 +3,7 @@ package com.hopital.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -38,9 +39,26 @@ public class Rdvmdlimp implements Rdvmdl{
 		try {
 
 			courses = session.createQuery("from Rdv").list();
-			System.out.println(courses.get(0).toString());
 		} catch (Exception e) {
-			System.out.println("jjj");
+			e.printStackTrace();
+		} 
+		return courses;
+	}
+	@Override
+	public List<Rdv> listRdv(Rdv rd) {
+		// TODO Auto-generated method stub
+		List<Rdv> courses = null;
+		try {
+
+			Query query = session.createQuery("from Rdv where date=:date and (idpatient=:idpatient OR iduser=:iduser)");
+			query.setParameter("date", rd.getDate());
+			query.setParameter("idpatient", rd.getIdpatient());
+			query.setParameter("iduser", rd.getIduser());
+			System.out.println(query.getQueryString());
+			courses = query.list();
+			
+		} catch (Exception e) {
+			System.out.println("ERROR");
 			e.printStackTrace();
 		} 
 		return courses;
