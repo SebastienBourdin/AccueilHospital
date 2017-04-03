@@ -5,6 +5,10 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.hopital.domain.Rdv;
@@ -13,7 +17,7 @@ import com.hopital.model.Rdvmdlimp;
 import com.hopital.utility.*;
 
 public class RdvAction extends ActionSupport  implements ModelDriven<Rdv> {
-
+	private HttpServletRequest request = null;
 	private static final long serialVersionUID = 1L;
 	private Rdv rdv = new Rdv();
 	private List<Rdv> rdvList = new ArrayList<Rdv>();
@@ -41,9 +45,6 @@ public class RdvAction extends ActionSupport  implements ModelDriven<Rdv> {
 		if(rdv.getHour()!=00 && rdv.getMinute()!=00){
 			rdv.setHeure(new Time(rdv.getHour(),rdv.getMinute(), 0));
 		}
-		
-		System.out.println(rdv.getDaterdv());
-		
 		 
 		if(!rdv.getDaterdv().isEmpty()){
 		rdv.setDate(DateUtil.getDate(rdv.getDaterdv()));
@@ -51,16 +52,39 @@ public class RdvAction extends ActionSupport  implements ModelDriven<Rdv> {
 		}
 	
 		rdvList = rdvmdl.listCustom(rdv);
-		
 		return SUCCESS;
 
 	}
-	
+	public String set()
+	{	
+		rdv.setHeure(new Time(rdv.getHour(),rdv.getMinute(), 0));
+		
+		//rdv.setDate(DateUtil.getDate(rdv.getDaterdv()));
+		 
+		if(check(rdv)){
+		rdvmdl.updateRdv(rdv); 
+		return SUCCESS;
+			}
+		else{
+		return NONE;
+		}
+	}
+	public String listset(){
+		String get = ServletActionContext.getRequest().getParameter("id");
+		Rdv rd=new Rdv();
+		rd.setId(Integer.parseInt(get));
+		System.out.println(rd.toString());
+		rdvList = rdvmdl.listCustom(rd);
+		System.out.println(rdvList.size());
+		return SUCCESS;
+		
+	}
 	
 	public boolean check(Rdv rdv){
 		boolean bool=true;
 		List<Rdv> rdvlist=this.listcheck(rdv);
 		for (Rdv rdvv : rdvlist) {
+			if(rdvv.getId()!=rdv.getId()){
 					if(rdvv.getHeure().after((rdv.getHeure()))){
 						long diff=rdvv.getHeure().getTime()-rdv.getHeure().getTime();
 						diff=Math.abs(diff)/60000;
@@ -87,7 +111,10 @@ public class RdvAction extends ActionSupport  implements ModelDriven<Rdv> {
 						bool=false;
 						break;
 					}
-			
+		}
+					else{
+						bool=true;
+					}
 		}
 			
 		return bool;

@@ -10,4 +10,5 @@ public interface Rdvmdl {
 	public List<Rdv> listRdv();
 	public List<Rdv> listRdv(Rdv rd);
 	List<Rdv> listCustom(Rdv rd);
+	public void updateRdv(Rdv rdv);
 }

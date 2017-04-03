@@ -3,6 +3,7 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
 	<package name="default" extends="hibernate-default">
 		<action name="addUser" method="add" class="com.tutorials4u.web.UserAction">
 			<result name="success" type="redirect">listUser</result>
@@ -26,6 +27,13 @@
 		</action>
 		<action name="search">
 			<result >/jsp/Rendez-vous/get.jsp</result>
+		</action>
+		<action name="listRDV" method="listset" class="com.hopital.action.RdvAction">
+			<result name="success">/jsp/Rendez-vous/set.jsp</result>
+		</action>
+		<action name="setRDV" method="set" class="com.hopital.action.RdvAction">
+			<result name="success" type="redirect">list</result>
+			<result name="none">/jsp/Rendez-vous/erreur.jsp</result>
 		</action>
 		<action name="addRDV" method="add" class="com.hopital.action.RdvAction">
 			<result name="success" type="redirect">list</result>

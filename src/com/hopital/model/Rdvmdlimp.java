@@ -69,7 +69,6 @@ public class Rdvmdlimp implements Rdvmdl{
 		List<Rdv> courses = null;
 		ArrayList<String> rq=new ArrayList<String>();
 		String sql="from Rdv";
-		System.out.println(rdv.toString());
 		try {
 			
 			if(rdv.getDate()!=null){
@@ -88,6 +87,9 @@ public class Rdvmdlimp implements Rdvmdl{
 			if(rdv.getIduser()!=0){
 				rq.add(" iduser="+rdv.getIduser()+" ");
 			}
+			if(rdv.getId()!=0){
+				rq.add(" id="+rdv.getId()+" ");
+			}
 			if(!rq.isEmpty()){
 				 sql+=" where ";
 			}
@@ -98,23 +100,7 @@ public class Rdvmdlimp implements Rdvmdl{
 				}
 			}
 			Query query = session.createQuery(sql);
-//			if(rdv.getDate()!=null){
-//			query.setParameter("date", rdv.getDate().toString());
-//			}
-//			
-//			if(rdv.getHeure()!=null){
-//				query.setParameter("heure", rdv.getHeure().toString());
-//			}
-//			if(rdv.getDuree()!=null){
-//				query.setParameter("duree", rdv.getDuree().toString());
-//			}
-//			if(rdv.getIdpatient()!=0){
-//				query.setParameter("idpatient", rdv.getIdpatient());
-//			}
-//			if(rdv.getIduser()!=0){
-//				query.setParameter("iduser", rdv.getIduser());
-//			}
-//			
+			System.out.println(sql);
 			courses = query.list();
 			
 		} catch (Exception e) {
@@ -122,6 +108,20 @@ public class Rdvmdlimp implements Rdvmdl{
 			e.printStackTrace();
 		} 
 		return courses;
+	}
+	public void updateRdv(Rdv rdv) {
+		// TODO Auto-generated method stub
+		
+		String hql = "UPDATE rendezvous SET "  + 
+	             " date = '"+rdv.getDate()+"' , idpatient = '"+rdv.getIdpatient()+"' , iduser = '"+rdv.getIduser()+"', heure= '"+rdv.getHeure()+"', duree = '"+rdv.getDuree()+"' WHERE id='"+rdv.getId()+"'";
+		
+		try {
+			session.createSQLQuery(hql).executeUpdate();
+			
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -33,6 +33,12 @@
 				<td><s:property value="date" /></td>
 				<td><s:property value="heure" /></td>
 				<td><s:property value="duree" /></td>
+				<td>
+				
+				<s:url namespace="/rdv" action="listRDV" var="var" > 
+				<s:param name="id" value="id" /> </s:url>
+				<s:a href="%{var}">Modifier</s:a> 
+				</td>
 			</tr>
 		</s:iterator>
 	</table>
