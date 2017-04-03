@@ -35,6 +35,10 @@
 			<result name="success" type="redirect">list</result>
 			<result name="none">/jsp/Rendez-vous/erreur.jsp</result>
 		</action>
+		<action name="delRDV" method="delete" class="com.hopital.action.RdvAction">
+			<result name="success" type="redirect">list</result>
+			<result name="none">/jsp/Rendez-vous/erreur.jsp</result>
+		</action>
 		<action name="addRDV" method="add" class="com.hopital.action.RdvAction">
 			<result name="success" type="redirect">list</result>
 			<result name="none">/jsp/Rendez-vous/erreur.jsp</result>

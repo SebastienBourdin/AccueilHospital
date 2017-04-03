@@ -124,4 +124,18 @@ public class Rdvmdlimp implements Rdvmdl{
 		}
 	}
 
+	@Override
+	public void delete(String get) {
+		// TODO Auto-generated method stub
+		String hql = "DELETE FROM rendezvous WHERE id ='"+get+"' ";
+		
+		try {
+			session.createSQLQuery(hql).executeUpdate();
+			
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+		}
+	}
+
 }

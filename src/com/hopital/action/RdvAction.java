@@ -79,6 +79,19 @@ public class RdvAction extends ActionSupport  implements ModelDriven<Rdv> {
 		return SUCCESS;
 		
 	}
+	public String delete(){
+		String get = ServletActionContext.getRequest().getParameter("id");
+		Rdv rd=new Rdv();
+		rd.setId(Integer.parseInt(get));
+		rdvList = rdvmdl.listCustom(rd);
+if(!rdvList.isEmpty()){
+	rdvmdl.delete(get);
+	return SUCCESS;
+}
+else{
+	return NONE;
+}
+	}
 	
 	public boolean check(Rdv rdv){
 		boolean bool=true;

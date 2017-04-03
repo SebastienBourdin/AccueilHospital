@@ -35,9 +35,13 @@
 				<td><s:property value="duree" /></td>
 				<td>
 				
-				<s:url namespace="/rdv" action="listRDV" var="var" > 
+				<s:url namespace="/rdv" action="listRDV" var="mod" > 
 				<s:param name="id" value="id" /> </s:url>
-				<s:a href="%{var}">Modifier</s:a> 
+				<s:a href="%{mod}">Modifier</s:a> 
+				
+				<s:url namespace="/rdv" action="delRDV" var="supp" > 
+				<s:param name="id" value="id" /> </s:url>
+				<s:a href="%{supp}">Supprimer</s:a> 
 				</td>
 			</tr>
 		</s:iterator>
