@@ -41,6 +41,7 @@
 		</action>
 		<action name="addRDV" method="add" class="com.hopital.action.RdvAction">
 			<result name="success" type="redirect">list</result>
+			<result name="input">/jsp/Rendez-vous/register.jsp</result>
 			<result name="none">/jsp/Rendez-vous/erreur.jsp</result>
 		</action>
 		<action name="getRDV" method="get" class="com.hopital.action.RdvAction">

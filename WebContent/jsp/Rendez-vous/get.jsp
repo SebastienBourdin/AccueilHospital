@@ -13,6 +13,7 @@ var x = document.getElementById("date");
 x.setAttribute("type", "date");
 x.setAttribute("value", "2014-02-09");
 }
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Saisie du Rendez-vous</title>
@@ -35,6 +36,6 @@ Bonjour <s:property value="#session.nom"/>
 		headerValue="15 min" label="Durée" />
 	<s:submit value="Rechercher" />
 </s:form>
-
+<script src="../../js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -29,6 +29,9 @@ public class RdvAction extends ActionSupport  implements ModelDriven<Rdv> {
 	
 	public String add()
 	{	
+		if(this.valid()==INPUT){
+			return INPUT;
+		}
 		rdv.setHeure(new Time(rdv.getHour(),rdv.getMinute(), 0));
 		rdv.setDate(DateUtil.getDate(rdv.getDaterdv()));
 		 
@@ -161,4 +164,15 @@ else{
 		this.rdvList = rdvList;
 	}
 
+	
+public String valid() {
+	// TODO Auto-generated method stub
+	
+			if(rdv.getIduser()==0){
+		         addFieldError("iduser","The name is required");
+		           
+			}
+return SUCCESS;			
+}
+	
 }

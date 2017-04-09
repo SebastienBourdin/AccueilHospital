@@ -5,11 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
 <title>Liste des Rendez-vous </title>
-<s:head />
-<style type="text/css">
-@import url(style.css);
-</style>
 </head>
 <body>Hello <s:property value="#session.nom"/> 
 
@@ -48,5 +45,8 @@
 	</table>
 	</div>
 </s:if><s:else>hii</s:else>
+
+
+<script src="../../js/bootstrap.min.js"></script>
 </body>
 </html>

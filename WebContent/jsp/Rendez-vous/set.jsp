@@ -3,30 +3,29 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@taglib uri="/struts-tags" prefix="s"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
 <html>
 <head>
 <script type="text/javascript">
-function pageLoad()
-{
-var x = document.getElementById("date");
-x.setAttribute("type", "date");
-x.setAttribute("value", "2014-02-09");
-}
+// function pageLoad()
+// {
+// var x = document.getElementById("date");
+// x.setAttribute("type", "date");
+// x.setAttribute("value", "2014-02-09");
+// }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Saisie du Rendez-vous</title>
 <s:head />
-<style type="text/css">
-@import url(style.css);
-</style>
+<link href="../../css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body onload="pageLoad()">
 
 
-Bonjour <s:property value="#session.nom"/> 
+<h1>Bonjour <s:property value="#session.nom"/> </h1>
 <s:iterator status="rdv" value="rdvList" >
 				
 <s:form action="setRDV">
@@ -43,5 +42,10 @@ Bonjour <s:property value="#session.nom"/>
 	<s:submit value="Enregistrer" />
 </s:form>
 </s:iterator>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../../js/bootstrap.min.js"></script>
 </body>
 </html>
