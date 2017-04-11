@@ -10,15 +10,14 @@
 <html>
 <head>
 <script type="text/javascript">
-// function pageLoad()
-// {
-// var x = document.getElementById("date");
-// x.setAttribute("type", "date");
-// x.setAttribute("value", "2014-02-09");
-// }
+function pageLoad()
+{
+var x = document.getElementById("date");
+x.setAttribute("type", "date");
+}
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Saisie du Rendez-vous</title>
+<title>Modification d'un rendez-vous</title>
 
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -68,7 +67,7 @@
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-	<s:textfield cssClass="form-control" name="daterdv" id="date" value="%{date}" />
+	<s:textfield cssClass="form-control" name="daterdv" id="date" value="%{@com.hopital.utility.DateUtil@getDateS(date)}" />
     </div>
   </div>
 </div>	
@@ -79,7 +78,7 @@
 <span><s:property value="vheure"/></span>
   <div class="col-md-4 inputGroupContainer ">
   <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+  <span class="input-group-addon" style="border: 1px solid #ccc; border-radius:4px;"><i class="glyphicon glyphicon-time"></i></span>
 	<div class="col-sm-6">
 		<s:select cssClass="form-control "  name="hour"  list="#{'08':'08h','09':'09h','10':'10h','11':'11h','12':'12h','13':'13h','14':'14h','15':'15h','16':'16h','17':'17h'}" value="%{@com.hopital.utility.Hour@getHour(heure)}" id="heure"  /> 
 	</div>
@@ -96,7 +95,7 @@
 <span><s:property value="vduree"/></span>
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+  <span class="input-group-addon" style="border: 1px solid #ccc; border-radius:4px;"><i class="glyphicon glyphicon-time"></i></span> 
 	<s:select cssClass="form-control" name="duree" list="#{15:'15 min',30:'30 min',45:'45 min',60:'1 heure'}" value="%{duree}"  id="duree" />
 	
     </div>

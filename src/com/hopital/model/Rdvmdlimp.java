@@ -73,11 +73,11 @@ public class Rdvmdlimp implements Rdvmdl{
 		try {
 			
 			if(rdv.getDate()!=null){
-				rq.add(" date="+rdv.getDate().toString()+" ");
+				rq.add(" date='"+rdv.getDate().toString()+"' ");
 			
 			}
 			if(rdv.getHeure()!=null){
-				rq.add(" heure="+rdv.getHeure().toString()+" ");
+				rq.add(" heure='"+rdv.getHeure().toString()+"' ");
 			}
 			if(rdv.getDuree()!=null){
 				rq.add(" duree="+rdv.getDuree()+" ");
