@@ -33,6 +33,7 @@
 		</action>
 		<action name="setRDV" method="set" class="com.hopital.action.RdvAction">
 			<result name="success" type="redirect">list</result>
+			<result name="input">/jsp/Rendez-vous/set.jsp</result>
 			<result name="none">/jsp/Rendez-vous/erreur.jsp</result>
 		</action>
 		<action name="delRDV" method="delete" class="com.hopital.action.RdvAction">

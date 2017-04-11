@@ -3,6 +3,7 @@ package com.hopital.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -68,7 +69,7 @@ public class Rdvmdlimp implements Rdvmdl{
 		// TODO Auto-generated method stub
 		List<Rdv> courses = null;
 		ArrayList<String> rq=new ArrayList<String>();
-		String sql="from Rdv";
+		String sql=" from Rdv ";
 		try {
 			
 			if(rdv.getDate()!=null){
@@ -103,7 +104,7 @@ public class Rdvmdlimp implements Rdvmdl{
 			System.out.println(sql);
 			courses = query.list();
 			
-		} catch (Exception e) {
+		} catch (HibernateException e) {
 			System.out.println("ERROR");
 			e.printStackTrace();
 		} 

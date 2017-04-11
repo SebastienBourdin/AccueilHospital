@@ -24,15 +24,16 @@ x.setAttribute("type", "date");
 
 
 <h1 >Bonjour <s:property value="#session.nom"/></h1> 
-
+ 
 <s:form action="addRDV" theme="simple" cssClass="well form-horizontal">
 <fieldset>
-
 
 <legend >Saisie d'un nouveau rendez-vous</legend> 
 
 <div class="form-group">
 <s:label cssClass="col-md-4 control-label" for="iduser" value="Id user"/>
+
+<span><s:property value="viduser"/></span>
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -42,7 +43,12 @@ x.setAttribute("type", "date");
 </div>
 
 <div class="form-group">
+
+
 <s:label cssClass="col-md-4 control-label" for="idpatient" value="Id Patient"/>
+
+<span><s:property value="vidpatient"/></span>
+     
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -53,6 +59,8 @@ x.setAttribute("type", "date");
 
 <div class="form-group">
 <s:label cssClass="col-md-4 control-label" for="date" value="Date du rendez-vous"/>
+
+<span><s:property value="vdate"/></span>
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
@@ -63,14 +71,16 @@ x.setAttribute("type", "date");
 
 <div class="form-group">
 <s:label cssClass="col-md-4 control-label" for="heure" value="L'heure du rendez-vous"/>
+
+<span><s:property value="vheure"/></span>
   <div class="col-md-4 inputGroupContainer ">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
 	<div class="col-sm-6">
-		<s:select cssClass="form-control "  name="hour"  list="#{'08':'08h','09':'09h','10':'10h','11':'11h','12':'12h','13':'13h','14':'14h','15':'15h','16':'16h','17':'17h'}" value="15" id="heure"  /> 
+		<s:select cssClass="form-control "  name="hour"  list="#{'08':'08h','09':'09h','10':'10h','11':'11h','12':'12h','13':'13h','14':'14h','15':'15h','16':'16h','17':'17h'}" value="08" id="heure"  /> 
 	</div>
 	<div class="col-sm-6">
-		<s:select   cssClass="form-control " name="minute" list="#{'00':'00min',15:'15min',30:'30min',45:'45min'}" value="45" />
+		<s:select   cssClass="form-control " name="minute" list="#{'00':'00min',15:'15min',30:'30min',45:'45min'}" value="00" />
 	</div>
     </div>
   </div>
@@ -78,6 +88,8 @@ x.setAttribute("type", "date");
 
  <div class="form-group">
 <s:label cssClass="col-md-4 control-label" for="duree" value="La durée"/>
+
+<span><s:property value="vduree"/></span>
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>

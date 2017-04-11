@@ -3,7 +3,9 @@ package com.hopital.action;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -21,7 +23,16 @@ public class RdvAction extends ActionSupport  implements ModelDriven<Rdv> {
 	private static final long serialVersionUID = 1L;
 	private Rdv rdv = new Rdv();
 	private List<Rdv> rdvList = new ArrayList<Rdv>();
+	private HashMap<String,String> valid = new HashMap<String,String>();
 	private Rdvmdl rdvmdl = new Rdvmdlimp();
+	private String viduser;
+	private String vidpatient;
+	private String vdate;
+	private String vheure;
+	private String vduree;
+	
+	
+	
 	
 	public Rdv getModel() {
 		return rdv;
@@ -45,7 +56,7 @@ public class RdvAction extends ActionSupport  implements ModelDriven<Rdv> {
 	}
 	public String get()
 	{	
-		if(rdv.getHour()!=00 && rdv.getMinute()!=00){
+		if(rdv.getHour()!=00){
 			rdv.setHeure(new Time(rdv.getHour(),rdv.getMinute(), 0));
 		}
 		 
@@ -53,16 +64,20 @@ public class RdvAction extends ActionSupport  implements ModelDriven<Rdv> {
 		rdv.setDate(DateUtil.getDate(rdv.getDaterdv()));
 			
 		}
-	
+	System.out.println(rdv.getHeure());
 		rdvList = rdvmdl.listCustom(rdv);
 		return SUCCESS;
 
 	}
 	public String set()
 	{	
+		
+		if(this.valid()==INPUT){
+			return INPUT;
+		}
 		rdv.setHeure(new Time(rdv.getHour(),rdv.getMinute(), 0));
 		
-		//rdv.setDate(DateUtil.getDate(rdv.getDaterdv()));
+		rdv.setDate(DateUtil.getDate(rdv.getDaterdv()));
 		 
 		if(check(rdv)){
 		rdvmdl.updateRdv(rdv); 
@@ -159,20 +174,65 @@ else{
 	public List<Rdv> getRdvList() {
 		return rdvList;
 	}
+	
+
+	public HashMap getvalid() {
+		return valid;
+	}
 
 	public void setRdvList(List<Rdv> rdvList) {
 		this.rdvList = rdvList;
 	}
 
 	
+public String getviduser() {
+		return viduser;
+	}
+
+	public String getvidpatient() {
+		return vidpatient;
+	}
+
+	public String getvdate() {
+		return vdate;
+	}
+
+	public String getvheure() {
+		return vheure;
+	}
+
+	public void setvduree(String vduree) {
+		this.vduree = vduree;
+	}
+
 public String valid() {
 	// TODO Auto-generated method stub
-	
-			if(rdv.getIduser()==0){
-		         addFieldError("iduser","The name is required");
-		           
-			}
+	boolean bool=false;
+	if(rdv.getIduser()==0){
+           viduser="Id user requis";
+           bool=true;
+	}
+	if(rdv.getIdpatient()==0){
+        vidpatient="Id patient requis";
+        bool=true;
+	}
+	if(DateUtil.isValidDate(DateUtil.getDate(rdv.getDaterdv()).toString())==false || rdv.getDaterdv().equals("")){
+        vdate="format date incorrect ou vide";
+        bool=true;
+	}
+	if(rdv.getDuree()==0){
+        vduree="Durée requis";
+        bool=true;
+	}
+	if(rdv.getHour()==0){
+        vheure="Heure requis";
+        bool=true;
+	}
+	if(bool){
+		return INPUT;
+	}else{
 return SUCCESS;			
-}
+	}
+	}
 	
 }
