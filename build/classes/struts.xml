@@ -1,0 +1,93 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+	<package name="default" extends="hibernate-default">
+		<action name="addUser" method="add" class="com.tutorials4u.web.UserAction">
+			<result name="success" type="redirect">listUser</result>
+		</action>
+		<action name="listUser" method="list" class="com.tutorials4u.web.UserAction">
+			<result name="success">/register.jsp</result>
+		</action>
+		<action name="session" method="sessionstart" class="com.hopital.client.session">
+			<result name="success">/jsp/saisiesession.jsp</result>
+		</action>
+		<action name="sessionstart" method="sessionstart" class="com.hopital.client.session">
+			<result name="success">/jsp/sessiontest.jsp</result>
+		</action>
+		<action name="sessionstop" method="sessionstop" class="com.hopital.client.session">
+			<result name="success">/jsp/sessiontest.jsp</result>
+		</action>
+	</package>
+
+	<!-- USER -->
+
+	<package name="USER" namespace="/user" extends="default">
+		<action name="new">
+			<result>/jsp/User/register.jsp</result>
+		</action>
+		<action name="search">
+			<result>/jsp/User/get.jsp</result>
+		</action>
+		<action name="listUser" method="listset" class="com.hopital.action.RdvAction">
+			<result name="success">/jsp/User/set.jsp</result>
+		</action>
+		<action name="setUser" method="set" class="com.hopital.action.RdvAction">
+			<result name="success" type="redirect">list</result>
+			<result name="input">/jsp/User/set.jsp</result>
+			<result name="none">/jsp/User/erreur.jsp</result>
+		</action>
+		<action name="delUser" method="delete" class="com.hopital.action.RdvAction">
+			<result name="success" type="redirect">list</result>
+			<result name="none">/jsp/User/erreur.jsp</result>
+		</action>
+		<action name="addUser" method="add" class="com.hopital.action.RdvAction">
+			<result name="success" type="redirect">list</result>
+			<result name="input">/jsp/User/register.jsp</result>
+			<result name="none">/jsp/User/erreur.jsp</result>
+		</action>
+		<action name="getUser" method="get" class="com.hopital.action.RdvAction">
+			<result name="success">/jsp/User/liste.jsp</result>
+			<result name="none">/jsp/User/erreur.jsp</result>
+		</action>
+		<action name="list" method="list" class="com.hopital.action.RdvAction">
+			<result name="success">/jsp/User/liste.jsp</result>
+		</action>
+	</package>
+
+	<!-- RDV -->
+	<package name="RDV" namespace="/rdv" extends="default">
+		<action name="new">
+			<result>/jsp/Rendez-vous/register.jsp</result>
+		</action>
+		<action name="search">
+			<result>/jsp/Rendez-vous/get.jsp</result>
+		</action>
+		<action name="listRDV" method="listset" class="com.hopital.action.RdvAction">
+			<result name="success">/jsp/Rendez-vous/set.jsp</result>
+		</action>
+		<action name="setRDV" method="set" class="com.hopital.action.RdvAction">
+			<result name="success" type="redirect">list</result>
+			<result name="input">/jsp/Rendez-vous/set.jsp</result>
+			<result name="none">/jsp/Rendez-vous/erreur.jsp</result>
+		</action>
+		<action name="delRDV" method="delete" class="com.hopital.action.RdvAction">
+			<result name="success" type="redirect">list</result>
+			<result name="none">/jsp/Rendez-vous/erreur.jsp</result>
+		</action>
+		<action name="addRDV" method="add" class="com.hopital.action.RdvAction">
+			<result name="success" type="redirect">list</result>
+			<result name="input">/jsp/Rendez-vous/register.jsp</result>
+			<result name="none">/jsp/Rendez-vous/erreur.jsp</result>
+		</action>
+		<action name="getRDV" method="get" class="com.hopital.action.RdvAction">
+			<result name="success">/jsp/Rendez-vous/liste.jsp</result>
+			<result name="none">/jsp/Rendez-vous/erreur.jsp</result>
+		</action>
+		<action name="list" method="list" class="com.hopital.action.RdvAction">
+			<result name="success">/jsp/Rendez-vous/liste.jsp</result>
+		</action>
+	</package>
+</struts>
