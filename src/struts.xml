@@ -12,47 +12,54 @@
 			<result name="success">/register.jsp</result>
 		</action>
 		<action name="session" method="sessionstart" class="com.hopital.client.session">
-			<result name="success">/jsp/saisiesession.jsp</result>
+			<result name="success">saisiesession.jsp</result>
 		</action>
 		<action name="sessionstart" method="sessionstart" class="com.hopital.client.session">
-			<result name="success">/jsp/sessiontest.jsp</result>
+			<result name="success">sessiontest.jsp</result>
 		</action>
 		<action name="sessionstop" method="sessionstop" class="com.hopital.client.session">
-			<result name="success">/jsp/sessiontest.jsp</result>
+			<result name="success">sessiontest.jsp</result>
 		</action>
 	</package>
 
+	<package name="General" namespace="/general" extends="default">
+		<action name="Accueil">
+			<result>/jsp/General/Accueil.jsp</result>
+		</action>
+	</package>
+
+
 	<!-- USER -->
 
-	<package name="USER" namespace="/user" extends="default">
+	<package name="User" namespace="/user" extends="default">
 		<action name="new">
 			<result>/jsp/User/register.jsp</result>
 		</action>
 		<action name="search">
 			<result>/jsp/User/get.jsp</result>
 		</action>
-		<action name="listUser" method="listset" class="com.hopital.action.RdvAction">
+		<action name="listUser" method="listset" class="com.hopital.action.UserAction">
 			<result name="success">/jsp/User/set.jsp</result>
 		</action>
-		<action name="setUser" method="set" class="com.hopital.action.RdvAction">
+		<action name="setUser" method="set" class="com.hopital.action.UserAction">
 			<result name="success" type="redirect">list</result>
 			<result name="input">/jsp/User/set.jsp</result>
 			<result name="none">/jsp/User/erreur.jsp</result>
 		</action>
-		<action name="delUser" method="delete" class="com.hopital.action.RdvAction">
+		<action name="delUser" method="delete" class="com.hopital.action.UserAction">
 			<result name="success" type="redirect">list</result>
 			<result name="none">/jsp/User/erreur.jsp</result>
 		</action>
-		<action name="addUser" method="add" class="com.hopital.action.RdvAction">
+		<action name="addUser" method="addUser" class="com.hopital.action.UserAction">
 			<result name="success" type="redirect">list</result>
 			<result name="input">/jsp/User/register.jsp</result>
 			<result name="none">/jsp/User/erreur.jsp</result>
 		</action>
-		<action name="getUser" method="get" class="com.hopital.action.RdvAction">
+		<action name="getUser" method="get" class="com.hopital.action.UserAction">
 			<result name="success">/jsp/User/liste.jsp</result>
 			<result name="none">/jsp/User/erreur.jsp</result>
 		</action>
-		<action name="list" method="list" class="com.hopital.action.RdvAction">
+		<action name="list" method="listUsers" class="com.hopital.action.UserAction">
 			<result name="success">/jsp/User/liste.jsp</result>
 		</action>
 	</package>

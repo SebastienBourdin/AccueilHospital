@@ -10,9 +10,9 @@ import org.hibernate.Transaction;
 import com.googlecode.s2hibernate.struts2.plugin.annotations.SessionTarget;
 import com.googlecode.s2hibernate.struts2.plugin.annotations.TransactionTarget;
 import com.hopital.domain.Rdv;
-import com.hopital.domain.User;
+import com.hopital.domain.Patient;
 
-public class Usermdlimp implements Usermdl {
+public class Patientmdlimp implements Patientmdl {
 
 	@SessionTarget
 	Session session;
@@ -21,24 +21,24 @@ public class Usermdlimp implements Usermdl {
 	Transaction transaction;
 
 	@SuppressWarnings("unchecked")
-	public List<User> getUsers()
+	public List<Patient> getPatients()
 	{
-		List<User> Users = new ArrayList<User>();
+		List<Patient> Patients = new ArrayList<Patient>();
 		try
 		{
-			Users = session.createQuery("from User").list();
+			Patients = session.createQuery("from Patient").list();
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		return Users;
+		return Patients;
 	}
 
-	public void addUser(User user)
+	public void addPatient(Patient Patient)
 	{
-		String hql = "INSERT INTO user (firstname, lastname, password, birthdate, type) "  + 
-				"VALUES ('"+user.getFirstName()+"', '"+user.getFirstName()+"', '"+user.getPassword()+"', '"+user.getBirthDate()+"', '"+user.getType()+"');";
+		String hql = "INSERT INTO Patient (firstname, lastname, birthdate, numdossier) "  + 
+				"VALUES ('"+Patient.getFirstName()+"', '"+Patient.getFirstName()+"', '"+Patient.getBirthDate()+"', '"+Patient.getNumdossier()+"');";
 		try {
 			session.createSQLQuery(hql).executeUpdate();
 
@@ -49,27 +49,27 @@ public class Usermdlimp implements Usermdl {
 	}
 	
 	
-	public List<User> listUser() {
+	public List<Patient> listPatient() {
 		// TODO Auto-generated method stub
-		List<User> courses = null;
+		List<Patient> courses = null;
 		try {
 
-			courses = session.createQuery("from user").list();
+			courses = session.createQuery("from Patient").list();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return courses;
 	}
 	@Override
-	public List<User> listUser(User user) {
+	public List<Patient> listPatient(Patient Patient) {
 		// TODO Auto-generated method stub
-		List<User> courses = null;
+		List<Patient> courses = null;
 		try {
 
-			Query query = session.createQuery("from user where lastname=:nom and (firstname=:firstname OR birthdate=:birthdate)");
-			query.setParameter("lastname", user.getLastName());
-			query.setParameter("firstname", user.getFirstName());
-			query.setParameter("birthdate", user.getBirthDate());
+			Query query = session.createQuery("from Patient where lastname=:nom and (firstname=:firstname OR birthdate=:birthdate)");
+			query.setParameter("lastname", Patient.getLastName());
+			query.setParameter("firstname", Patient.getFirstName());
+			query.setParameter("birthdate", Patient.getBirthDate());
 			System.out.println(query.getQueryString());
 			courses = query.list();
 			
@@ -81,12 +81,11 @@ public class Usermdlimp implements Usermdl {
 	}
 	
 	@Override
-	public void updateUser(User user) {
+	public void updatePatient(Patient Patient) {
 		// TODO Auto-generated method stub
 		
-		String hql = "UPDATE user SET "  + 
-	             " firstname = '"+user.getFirstName()+"' , lastname = '"+user.getLastName()+"' , type = '"+user.getType()+"', admin= '"+user.isAdmin()+"', birthdate = '"+user.getBirthDate()+"' WHERE id='"+user.getId()+"'";
-		
+		String hql = "UPDATE patient SET "  + 
+	             " firstname = '"+Patient.getFirstName()+"' , lastname = '"+Patient.getLastName()+"' ,  birthdate = '"+Patient.getBirthDate()+", numdossier = '"+Patient.getNumdossier()+"' WHERE id='"+Patient.getId()+"'";
 		try {
 			session.createSQLQuery(hql).executeUpdate();
 			
@@ -97,11 +96,10 @@ public class Usermdlimp implements Usermdl {
 	}
 	
 	
-	
 	@Override
-	public void delete(String user_id) {
+	public void delete(String patient_id) {
 		// TODO Auto-generated method stub
-		String hql = "DELETE FROM user WHERE id ='"+user_id+"' ";
+		String hql = "DELETE FROM Patient WHERE id ='"+patient_id+"' ";
 		
 		try {
 			session.createSQLQuery(hql).executeUpdate();
