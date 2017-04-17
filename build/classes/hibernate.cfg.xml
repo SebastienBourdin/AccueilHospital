@@ -11,5 +11,7 @@
   <property name="hbm2ddl.auto">create</property>
   <mapping class="com.hopital.domain.Rdv"/>
   <mapping class="com.hopital.domain.User"/>
+  <mapping class="com.hopital.domain.Patient"/>
+  <mapping class="com.hopital.domain.Dossier"/>
  </session-factory>
 </hibernate-configuration>
