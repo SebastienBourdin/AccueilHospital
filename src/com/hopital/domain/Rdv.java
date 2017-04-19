@@ -92,13 +92,6 @@ import javax.persistence.Transient;
 			this.Hour = hour;
 		}
 		
-
-		@Override
-		public String toString() {
-			return "Rdv [id=" + id + ", iduser=" + iduser + ", idpatient="
-					+ idpatient + ", date=" + date + ", heure=" + heure
-					+ ", duree=" + duree + "]";
-		}
 		@Transient
 		public String getDaterdv() {
 			return daterdv;
