@@ -32,7 +32,6 @@
 		</thead>
 		<tbody>
 		<s:iterator value="userList" >
-		
 			<tr>
 				<td><s:property value="id" /></td>
 				<td><s:property value="birthdate" /></td>

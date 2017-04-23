@@ -37,8 +37,8 @@ public class Usermdlimp implements Usermdl {
 
 	public void addUser(User user)
 	{
-		String hql = "INSERT INTO user (firstname, lastname, password, birthdate, type) "  + 
-				"VALUES ('"+user.getFirstName()+"', '"+user.getFirstName()+"', '"+user.getPassword()+"', '"+user.getBirthDate()+"', '"+user.getType()+"');";
+		String hql = "INSERT INTO user (firstname, lastname, password, birthdate, type,admin) "  + 
+				"VALUES ('"+user.getFirstname()+"', '"+user.getLastname()+"', '"+user.getPassword()+"', '"+user.getBirthdate()+"', '"+user.getType()+"', '0');";
 		try {
 			session.createSQLQuery(hql).executeUpdate();
 
@@ -67,9 +67,9 @@ public class Usermdlimp implements Usermdl {
 		try {
 
 			Query query = session.createQuery("from user where lastname=:nom and (firstname=:firstname OR birthdate=:birthdate)");
-			query.setParameter("lastname", user.getLastName());
-			query.setParameter("firstname", user.getFirstName());
-			query.setParameter("birthdate", user.getBirthDate());
+			query.setParameter("lastname", user.getLastname());
+			query.setParameter("firstname", user.getFirstname());
+			query.setParameter("birthdate", user.getBirthdate());
 			System.out.println(query.getQueryString());
 			courses = query.list();
 			
@@ -85,7 +85,7 @@ public class Usermdlimp implements Usermdl {
 		// TODO Auto-generated method stub
 		
 		String hql = "UPDATE user SET "  + 
-	             " firstname = '"+user.getFirstName()+"' , lastname = '"+user.getLastName()+"' , type = '"+user.getType()+"', admin= '"+user.isAdmin()+"', birthdate = '"+user.getBirthDate()+"' WHERE id='"+user.getId()+"'";
+	             " firstname = '"+user.getFirstname()+"' , lastname = '"+user.getLastname()+"' , type = '"+user.getType()+"', admin= '"+user.isAdmin()+"', birthdate = '"+user.getBirthdate()+"' WHERE id='"+user.getId()+"'";
 		
 		try {
 			session.createSQLQuery(hql).executeUpdate();

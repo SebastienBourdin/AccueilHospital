@@ -5,12 +5,6 @@
 <struts>
 	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
 	<package name="default" extends="hibernate-default">
-		<action name="addUser" method="add" class="com.tutorials4u.web.UserAction">
-			<result name="success" type="redirect">listUser</result>
-		</action>
-		<action name="listUser" method="list" class="com.tutorials4u.web.UserAction">
-			<result name="success">/register.jsp</result>
-		</action>
 		<action name="session" method="sessionstart" class="com.hopital.client.session">
 			<result name="success">saisiesession.jsp</result>
 		</action>
@@ -63,6 +57,43 @@
 			<result name="success">/jsp/User/liste.jsp</result>
 		</action>
 	</package>
+	
+	
+		<!-- PATIENT -->
+
+	<package name="Patient" namespace="/patient" extends="default">
+		<action name="new">
+			<result>/jsp/Patient/register.jsp</result>
+		</action>
+		<action name="search">
+			<result>/jsp/Patient/get.jsp</result>
+		</action>
+		<action name="listPatient" method="listset" class="com.hopital.action.PatientAction">
+			<result name="success">/jsp/Patient/set.jsp</result>
+		</action>
+		<action name="setPatient" method="set" class="com.hopital.action.PatientAction">
+			<result name="success" type="redirect">list</result>
+			<result name="input">/jsp/Patient/set.jsp</result>
+			<result name="none">/jsp/Patient/erreur.jsp</result>
+		</action>
+		<action name="delPatient" method="delete" class="com.hopital.action.PatientAction">
+			<result name="success" type="redirect">list</result>
+			<result name="none">/jsp/Patient/erreur.jsp</result>
+		</action>
+		<action name="addPatient" method="addPatient" class="com.hopital.action.PatientAction">
+			<result name="success" type="redirect">list</result>
+			<result name="input">/jsp/Patient/register.jsp</result>
+			<result name="none">/jsp/Patient/erreur.jsp</result>
+		</action>
+		<action name="getPatient" method="get" class="com.hopital.action.PatientAction">
+			<result name="success">/jsp/Patient/liste.jsp</result>
+			<result name="none">/jsp/Patient/erreur.jsp</result>
+		</action>
+		<action name="list" method="listPatients" class="com.hopital.action.PatientAction">
+			<result name="success">/jsp/Patient/liste.jsp</result>
+		</action>
+	</package>
+	
 
 	<!-- RDV -->
 	<package name="RDV" namespace="/rdv" extends="default">

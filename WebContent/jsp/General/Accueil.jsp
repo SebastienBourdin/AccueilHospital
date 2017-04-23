@@ -14,24 +14,27 @@
 	<div class="container ">
 
 
-		<h1>
+		<h1 class="text-center">
 			Accueil Hôpital
 			<s:property value="#session.nom" />
 		</h1>
+		<br>
+		<br>
 		<div class="row">
-		
-		
-			<div class="col-xs-12">
-				<a class="btn btn-info" href="/Accueil_Hopital/patient/search">Rechercher un patient</a>
-				<a class="btn btn-info" href="/Accueil_Hopital/user/search">Rechercher un Medecin</a>
-				<a class="btn btn-info" href="/Accueil_Hopital/rdv/search">Rechercher un Rendez-vous</a>
+			<div class="col-xs-12 text-center">
+				<a class="btn btn-info" href="/Accueil_Hopital/patient/search">Rechercher
+					un patient</a> <a class="btn btn-info"
+					href="/Accueil_Hopital/user/search">Rechercher un Medecin</a> <a
+					class="btn btn-info" href="/Accueil_Hopital/rdv/search">Rechercher
+					un Rendez-vous</a>
 			</div>
-			<div class="col-xs-12">
-				<a class="btn btn-info" href="/Accueil_Hopital/patient/new">Ajouter un patient</a>
-				<a class="btn btn-info" href="/Accueil_Hopital/rdv/new">Ajouter un Rendez-vous</a>
+			<div class="col-xs-12 text-center">
+				<a class="btn btn-info" href="/Accueil_Hopital/patient/new">Ajouter
+					un patient</a> <a class="btn btn-info" href="/Accueil_Hopital/rdv/new">Ajouter
+					un Rendez-vous</a>
 			</div>
-		
 
+			<!-- LISTE PATIENT -->
 			<div class="col-xs-6">
 				<h2>Liste des patients</h2>
 				<div class="well form-horizontal">
@@ -79,11 +82,14 @@
 					<s:else>Aucun Patient n'est encore enregistré</s:else>
 				</div>
 			</div>
+
+
+			<!-- LISTE MEDECIN -->
 			<div class="col-xs-6">
 				<h2>Liste des médecins</h2>
-				
-				
-					<div class="well form-horizontal">
+
+
+				<div class="well form-horizontal">
 					<s:if test="rdvList.size() > 0">
 						<div class="content">
 							<table class="responstable" cellpadding="5px">
@@ -127,8 +133,8 @@
 					</s:if>
 					<s:else>Aucun Médecin n'est encore enregistré</s:else>
 				</div>
-				
-				
+
+
 			</div>
 
 		</div>

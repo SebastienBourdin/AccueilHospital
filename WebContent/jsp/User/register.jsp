@@ -98,19 +98,6 @@
 				</div>
 
 
-				<!-- ADMIN -->
-				<div class="form-group">
-					<s:label cssClass="col-md-4 control-label" for="admin"
-						value="Admin" />
-					<span><s:property value="vadmin" /></span>
-					<div class="col-md-4 inputGroupContainer">
-						<div class="input-group">
-							<s:checkbox name="admin" value="%{admin}" label="Admin ?" />
-						</div>
-					</div>
-				</div>
-
-
 				<!-- Button -->
 				<div class="form-group">
 					<label class="col-md-4 control-label"></label>

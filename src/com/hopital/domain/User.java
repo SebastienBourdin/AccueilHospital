@@ -15,12 +15,12 @@ public class User {
 	private String lastname;
 	private String type;
 	private String password;
-	private Boolean admin;
+	private int admin;
 	private Date birthdate;
 
 
 	public User(){
-		this.admin=false;
+		this.admin=0;
 	}
 	
 	@Id
@@ -34,10 +34,10 @@ public class User {
 	}   
 
 	@Column(name="birthdate")
-	public Date getBirthDate() {
+	public Date getBirthdate() {
 		return this.birthdate;
 	}
-	public void setBirthDate(Date birthdate) {
+	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}   
 
@@ -63,26 +63,26 @@ public class User {
 	}   
 
 	@Column(name="firstname")
-	public String getFirstName() {
+	public String getFirstname() {
 		return this.firstname;
 	}
-	public void setFirstName(String firstname) {
+	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
 
 	@Column(name="lastname")
-	public String getLastName() {
+	public String getLastname() {
 		return this.lastname;
 	}
-	public void setLastName(String lastname) {
+	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
 
 	@Column(name="admin")
-	public boolean isAdmin() {
+	public int isAdmin() {
 		return this.admin;
 	}
-	public void setAdmin(boolean admin) {
+	public void setAdmin(int admin) {
 		this.admin=admin;
 	}
 

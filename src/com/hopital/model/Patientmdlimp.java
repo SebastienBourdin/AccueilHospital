@@ -37,8 +37,8 @@ public class Patientmdlimp implements Patientmdl {
 
 	public void addPatient(Patient Patient)
 	{
-		String hql = "INSERT INTO Patient (firstname, lastname, birthdate, numdossier) "  + 
-				"VALUES ('"+Patient.getFirstName()+"', '"+Patient.getFirstName()+"', '"+Patient.getBirthDate()+"', '"+Patient.getNumdossier()+"');";
+		String hql = "INSERT INTO Patient (firstname, lastname, birthdate) "  + 
+				"VALUES ('"+Patient.getFirstname()+"', '"+Patient.getLastname()+"', '"+Patient.getBirthdate()+"');";
 		try {
 			session.createSQLQuery(hql).executeUpdate();
 
@@ -67,9 +67,9 @@ public class Patientmdlimp implements Patientmdl {
 		try {
 
 			Query query = session.createQuery("from Patient where lastname=:nom and (firstname=:firstname OR birthdate=:birthdate)");
-			query.setParameter("lastname", Patient.getLastName());
-			query.setParameter("firstname", Patient.getFirstName());
-			query.setParameter("birthdate", Patient.getBirthDate());
+			query.setParameter("lastname", Patient.getLastname());
+			query.setParameter("firstname", Patient.getFirstname());
+			query.setParameter("birthdate", Patient.getBirthdate());
 			System.out.println(query.getQueryString());
 			courses = query.list();
 			
@@ -85,7 +85,7 @@ public class Patientmdlimp implements Patientmdl {
 		// TODO Auto-generated method stub
 		
 		String hql = "UPDATE patient SET "  + 
-	             " firstname = '"+Patient.getFirstName()+"' , lastname = '"+Patient.getLastName()+"' ,  birthdate = '"+Patient.getBirthDate()+", numdossier = '"+Patient.getNumdossier()+"' WHERE id='"+Patient.getId()+"'";
+	             " firstname = '"+Patient.getFirstname()+"' , lastname = '"+Patient.getLastname()+"' ,  birthdate = '"+Patient.getBirthdate()+"' WHERE id='"+Patient.getId()+"'";
 		try {
 			session.createSQLQuery(hql).executeUpdate();
 			

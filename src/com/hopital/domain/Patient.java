@@ -13,7 +13,6 @@ public class Patient {
 	private String firstname;
 	private String lastname;
 	private Date birthdate;
-	private int numdossier;
 
 	@Id
 	@GeneratedValue
@@ -26,40 +25,32 @@ public class Patient {
 	}   
 
 	@Column(name="birthdate")
-	public Date getBirthDate() {
+	public Date getBirthdate() {
 		return this.birthdate;
 	}
-	public void setBirthDate(Date birthdate) {
+	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}   
 
 	@Column(name="firstname")
-	public String getFirstName() {
+	public String getFirstname() {
 		return this.firstname;
 	}
-	public void setFirstName(String firstname) {
+	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
 
 	@Column(name="lastname")
-	public String getLastName() {
+	public String getLastname() {
 		return this.lastname;
 	}
-	public void setLastName(String lastname) {
+	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
 	
 	@Override
 	public String toString() {
 		return "Patient [id=" + id + ", Firstname=" + firstname + ", Lastname=" + lastname + "]";
-	}
-
-	@Column(name="numdossier")
-	public int getNumdossier() {
-		return numdossier;
-	}
-	public void setNumdossier(int numdossier) {
-		this.numdossier = numdossier;
 	}
 	
 
