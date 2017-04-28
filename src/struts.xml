@@ -5,7 +5,7 @@
 <struts>
 	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
 
-	<package name="RDV" namespace="/rdv" extends="default">
+	<package name="RDV" namespace="/rdv" extends="struts-default">
 		<action name="new">
 			<result>/jsp/Rendez-vous/register.jsp</result>
 		</action>
