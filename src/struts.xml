@@ -100,12 +100,8 @@
 	</package>
 
 
-<<<<<<< HEAD
 	<!-- RDV -->
 	<package name="RDV" namespace="/rdv" extends="default">
-=======
-	<package name="RDV" namespace="/rdv" extends="struts-default">
->>>>>>> origin/Accueil_hopital_walid
 		<action name="new">
 			<result>/jsp/Rendez-vous/register.jsp</result>
 		</action>
