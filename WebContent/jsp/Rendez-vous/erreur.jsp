@@ -7,8 +7,8 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <title>RDV error</title>
 </head>
-<body>
-<h1>Erreur</h1>
+<body><h1>Erreur!</h1>
+<p>Le rendez-vous existe dans cette période </p>
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
