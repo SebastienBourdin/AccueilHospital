@@ -3,30 +3,14 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
-	<package name="default" extends="hibernate-default">
-		<action name="addUser" method="add" class="com.tutorials4u.web.UserAction">
-			<result name="success" type="redirect">listUser</result>
-		</action>
-		<action name="listUser" method="list" class="com.tutorials4u.web.UserAction">
-			<result name="success">/register.jsp</result>
-		</action>
-		<action name="session" method="sessionstart" class="com.hopital.client.session">
-			<result name="success">/jsp/saisiesession.jsp</result>
-		</action>
-		<action name="sessionstart" method="sessionstart" class="com.hopital.client.session">
-			<result name="success">/jsp/sessiontest.jsp</result>
-		</action>
-		<action name="sessionstop" method="sessionstop" class="com.hopital.client.session">
-			<result name="success">/jsp/sessiontest.jsp</result>
-		</action>
-	</package>
-	<package name="RDV" namespace="/rdv" extends="default" >
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true" />
+
+	<package name="RDV" namespace="/rdv" extends="default">
 		<action name="new">
-			<result >/jsp/Rendez-vous/register.jsp</result>
+			<result>/jsp/Rendez-vous/register.jsp</result>
 		</action>
 		<action name="search">
-			<result >/jsp/Rendez-vous/get.jsp</result>
+			<result>/jsp/Rendez-vous/get.jsp</result>
 		</action>
 		<action name="listRDV" method="listset" class="com.hopital.action.RdvAction">
 			<result name="success">/jsp/Rendez-vous/set.jsp</result>
@@ -47,7 +31,6 @@
 		</action>
 		<action name="getRDV" method="get" class="com.hopital.action.RdvAction">
 			<result name="success">/jsp/Rendez-vous/liste.jsp</result>
-			<result name="none">/jsp/Rendez-vous/erreur.jsp</result>
 		</action>
 		<action name="list" method="list" class="com.hopital.action.RdvAction">
 			<result name="success">/jsp/Rendez-vous/liste.jsp</result>

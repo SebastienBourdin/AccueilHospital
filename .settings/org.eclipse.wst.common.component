@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="Accueil_Hopital">
+    <wb-module deploy-name="RDV">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <wb-resource deploy-path="/WEB-INF/classes/" source-path="/ImportedClasses"/>
-        <wb-resource deploy-path="/" source-path="/WebContent/WEB-INF/lib"/>
-        <property name="java-output-path" value="/Accueil_Hopital/build/classes"/>
-        <property name="context-root" value="Accueil_Hopital"/>
+        <property name="context-root" value="RDV"/>
+        <property name="java-output-path" value="/RDV/build/classes"/>
     </wb-module>
 </project-modules>
