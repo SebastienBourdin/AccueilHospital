@@ -8,7 +8,11 @@
 <title>RDV error</title>
 </head>
 <body>
-<h1>Erreur</h1>
+<div class="container well ">
+
+<h1>Erreur!</h1>
+<p>Le rendez-vous existe dans cette période </p>
+</div>
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
