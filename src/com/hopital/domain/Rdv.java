@@ -10,9 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-
 @Entity
-@Table(name="rendezvous")
+@Table(name = "rendezvous")
 public class Rdv {
 
 	private int id;
@@ -27,51 +26,56 @@ public class Rdv {
 
 	@Id
 	@GeneratedValue
-	@Column(name="id")
+	@Column(name = "id")
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
-	@Column(name="iduser")
+	@Column(name = "iduser")
 	public int getIduser() {
 		return iduser;
 	}
+
 	public void setIduser(int id) {
 		this.iduser = id;
 	}
 
-	@Column(name="idpatient")
+	@Column(name = "idpatient")
 	public int getIdpatient() {
 		return idpatient;
 	}
+
 	public void setIdpatient(int id) {
 		this.idpatient = id;
 	}
-	@Column(name="date")
+
+	@Column(name = "date")
 	public Date getDate() {
 		return date;
 	}
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
 
-
-	@Column(name="duree")
+	@Column(name = "duree")
 	public Long getDuree() {
 		return duree;
 	}
+
 	public void setDuree(Long duree) {
 		this.duree = duree;
 	}
 
-	@Column(name="heure")
+	@Column(name = "heure")
 	public Time getHeure() {
 		return heure;
 	}
+
 	public void setHeure(Time string) {
 		this.heure = string;
 	}
@@ -80,6 +84,7 @@ public class Rdv {
 	public int getMinute() {
 		return minute;
 	}
+
 	public void setMinute(int minute) {
 		this.minute = minute;
 	}
@@ -88,10 +93,10 @@ public class Rdv {
 	public int getHour() {
 		return Hour;
 	}
+
 	public void setHour(int hour) {
 		this.Hour = hour;
 	}
-
 
 	@Override
 	public String toString() {
@@ -99,13 +104,14 @@ public class Rdv {
 				+ idpatient + ", date=" + date + ", heure=" + heure
 				+ ", duree=" + duree + "]";
 	}
+
 	@Transient
 	public String getDaterdv() {
 		return daterdv;
 	}
+
 	public void setDaterdv(String daterdv) {
 		this.daterdv = daterdv;
 	}
 
 }
-
