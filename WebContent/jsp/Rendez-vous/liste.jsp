@@ -30,7 +30,7 @@
 								<th>Patient id</th>
 								<th>Date du rendez-vous</th>
 								<th>L'heure du rendez-vous</th>
-								<th>La durée du rendez-vous</th>
+								<th>La durÃ©e du rendez-vous</th>
 								<th>Modifier</th>
 								<th>Supprimer</th>
 							</tr>
@@ -61,7 +61,7 @@
 					</table>
 				</div>
 			</s:if>
-			<s:else>hii</s:else>
+			<s:else>Pas de rendez-vous!</s:else>
 		</div>
 	</div>
 	<script src="../js/bootstrap.min.js"></script>
