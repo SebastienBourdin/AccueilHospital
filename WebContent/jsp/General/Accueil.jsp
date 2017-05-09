@@ -15,23 +15,28 @@
 
 
 		<h1 class="text-center">
-			Accueil Hôpital
+			Accueil HÃ´pital
 			<s:property value="#session.nom" />
 		</h1>
 		<br>
 		<br>
 		<div class="row">
 			<div class="col-xs-12 text-center">
-				<a class="btn btn-info" href="/Accueil_Hopital/patient/search">Rechercher
-					un patient</a> <a class="btn btn-info"
-					href="/Accueil_Hopital/user/search">Rechercher un Medecin</a> <a
-					class="btn btn-info" href="/Accueil_Hopital/rdv/search">Rechercher
-					un Rendez-vous</a>
+			<s:url namespace="/patient" action="search" var="mod"></s:url>
+			 <s:a cssClass="btn btn-info" href="%{mod}"> Rechercher un patient </s:a>
+					<s:url namespace="/user" action="search" var="mod"></s:url>
+			 <s:a cssClass="btn btn-info" href="%{mod}"> Rechercher un Medecin </s:a>
+			 				<s:url namespace="/rdv" action="search" var="mod"></s:url>
+			 <s:a cssClass="btn btn-info" href="%{mod}"> Rechercher un Rendez-vous </s:a>
+				
+			
 			</div>
 			<div class="col-xs-12 text-center">
-				<a class="btn btn-info" href="/Accueil_Hopital/patient/new">Ajouter
-					un patient</a> <a class="btn btn-info" href="/Accueil_Hopital/rdv/new">Ajouter
-					un Rendez-vous</a>
+					<s:url namespace="/patient" action="new" var="mod"></s:url>
+			 <s:a cssClass="btn btn-info" href="%{mod}">Ajouter un patient</s:a>
+			 <s:url namespace="/rdv" action="new" var="mod"></s:url>
+			 <s:a cssClass="btn btn-info" href="%{mod}">Ajouter un Rendez-vous</s:a>
+		
 			</div>
 
 			<!-- LISTE PATIENT -->
@@ -48,7 +53,7 @@
 										<th>Patient id</th>
 										<th>Date du rendez-vous</th>
 										<th>L'heure du rendez-vous</th>
-										<th>La durée du rendez-vous</th>
+										<th>La durÃ©e du rendez-vous</th>
 										<th>Modifier</th>
 										<th>Supprimer</th>
 									</tr>
@@ -79,14 +84,14 @@
 							</table>
 						</div>
 					</s:if>
-					<s:else>Aucun Patient n'est encore enregistré</s:else>
+					<s:else>Aucun Patient n'est encore enregistrÃ©</s:else>
 				</div>
 			</div>
 
 
 			<!-- LISTE MEDECIN -->
 			<div class="col-xs-6">
-				<h2>Liste des médecins</h2>
+				<h2>Liste des mÃ©decins</h2>
 
 
 				<div class="well form-horizontal">
@@ -100,7 +105,7 @@
 										<th>Patient id</th>
 										<th>Date du rendez-vous</th>
 										<th>L'heure du rendez-vous</th>
-										<th>La durée du rendez-vous</th>
+										<th>La durÃ©e du rendez-vous</th>
 										<th>Modifier</th>
 										<th>Supprimer</th>
 									</tr>
@@ -131,7 +136,7 @@
 							</table>
 						</div>
 					</s:if>
-					<s:else>Aucun Médecin n'est encore enregistré</s:else>
+					<s:else>Aucun MÃ©decin n'est encore enregistrÃ©</s:else>
 				</div>
 
 
